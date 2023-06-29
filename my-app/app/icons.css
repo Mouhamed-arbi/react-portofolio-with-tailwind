@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+:root {
+    --accent-color: #000000;
+    --main-bg-color: #ffffff;
+    --gray: #808080;
+    --secondary-font: 'Roboto', sans-serif;
+}
+
+#tools {
+    padding: auto;
+    margin: auto;
+    height: auto;
+    background-color: white;
+}
+
+#tools #title {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--accent-color);
+    padding-top: 15px;
+}
+
+@media screen and (min-width: 300px) {
+    #tools {
+        padding: 10%;
+    }
+
+    #tools #title {
+        width: 100vw;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    #tools {
+        padding-block: 10%;
+        padding-left: 15%;
+    }
+}
+
+.tools-names {
+    margin-inline: 0px;
+}
+
+.tools-names p {
+    font-family: var(--secondary-font);
+    font-size: 2em;
+    color: var(--main-bg-color);
+    transition: font-size 0.3s ease-in-out;
+    display: flex;
+    justify-content: ;
+    align-items: center;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.tools-names p:hover {
+    color: var(--gray);
+    font-size: 2.2em;
+    font-weight: medium;
+}
+
+.tools-names .languages-icons {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    transition: transform 0.2s;
+}
+
+.tools-names .languages-icons:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 600px) {
+    .sound-div {
+        display: none;
+    }
+}
+
+.sound-div {
+    animation: bounce 1s infinite;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}

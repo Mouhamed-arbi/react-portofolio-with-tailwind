@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import Head from "next/head";
 import {
@@ -7,21 +7,32 @@ import {
   AiFillGithub,
 } from "react-icons/ai";
 import { BsFillMoonStarsFill } from "react-icons/bs";
-import deved from "../public/dev-ed-wave.png";
+import deved from "../public/arbi.jpg";
 import design from "../public/design.png";
 import code from "../public/code.png";
 import consulting from "../public/consulting.png";
-import web1 from '../public/web1.png';
-import web2 from '../public/web2.png';
-import web3 from '../public/web3.png';
-import web4 from '../public/web4.png';
-import web5 from '../public/web5.png';
-import web6 from '../public/web6.png';
-import React,{useState} from 'react';
+import web1 from "../public/web1.png";
+import web2 from "../public/web2.png";
+import web3 from "../public/web3.png";
+import web4 from "../public/web4.png";
+import web5 from "../public/web5.png";
+import web6 from "../public/web6.png";
+import React, { useState } from "react";
+import { Howl } from "howler";
+import tickSoundFile from "../public/tick.mp3";
+import iconss from "./icons.css";
 export default function Home() {
-  const [darkMode,setDarkMode]=useState(false)
+  const [darkMode, setDarkMode] = useState(false);
+  const [snackbar, setSnackbar] = useState(false);
+  const tickSound = new Howl({ src: tickSoundFile });
+
+  const playTickSound = () => {
+    tickSound.play();
+
+   
+  };
   return (
-    <div className={darkMode ? "dark" :""}>
+    <div className={darkMode ? "dark" : ""}>
       <head>
         <title>Arbi Portofolio</title>
       </head>
@@ -34,12 +45,15 @@ export default function Home() {
             </h1>
             <ul className="flex items-center">
               <li>
-                <BsFillMoonStarsFill onClick={()=>setDarkMode(!darkMode)} className="cursor-pointer text-2xl" />
+                <BsFillMoonStarsFill
+                  onClick={() => setDarkMode(!darkMode)}
+                  className="cursor-pointer text-2xl"
+                />
               </li>
               <li>
                 <a
                   className=" bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-4 py-2 rounded-md ml-8"
-                  href="*"
+                  href="https://drive.google.com/file/d/1Lom7u3QafHvrYfDrblUSFAUjK9wzqegk/view?usp=sharing"
                 >
                   Resume
                 </a>
@@ -50,15 +64,21 @@ export default function Home() {
             <h2 className="text-5xl py-2 text-teal-600 font-medium md:text-6xl">
               Med Arbi Moussi
             </h2>
-            <h3 className="text-2xl py-2 md:text-3xl">Full-Stack JavaScript Developer</h3>
+            <h3 className="text-2xl py-2 md:text-3xl">
+              Full-Stack JavaScript Developer
+            </h3>
             <p className="text-md py-5 leading-8 text-gray-800 md:text-xl max-w-xl mx-auto">
               {" "}
               Freelancer providing services for pragramming
             </p>
           </div>
-          <div className="text-5xl flex justify-cdenter gap-16 py-3 text-gray-600">
-            <AiFillLinkedin />
-            <AiFillGithub />
+          <div className="text-5xl flex justify-center gap-16 py-3 text-gray-600">
+            <a href="https://www.linkedin.com/in/mouhamed-arbi-moussi-8944bb24b/">
+              <AiFillLinkedin />
+            </a>
+            <a href="https://github.com/Mouhamed-arbi">
+              <AiFillGithub />
+            </a>
           </div>
           <div className="relative mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 mt-20 overflow-hidden md:h-96 md:w-96">
             <Image src={deved} layout="fill" objectFit="cover" />
@@ -66,21 +86,48 @@ export default function Home() {
         </section>
         <section>
           <div>
-            <h3 className="text-3xl py-1">Services I Offer</h3>
+            <h3 className="text-3xl py-1">About Me</h3>
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
-              Since the beginning of my journey as a freelance designer and
-              developer, I've done remote work for
-              <span className="text-teal-500"> agencies </span>
-              consulted for <span className="text-teal-500">startups </span>
-              and collaborated with talanted people to create digital products
-              for both business and consumer use.
-            </p>
-            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
-              I offer from a wide range of services, including brand design,
-              programming and teaching.
+              As a{" "}
+              <span className="text-teal-500">Full Stack web developer </span>,
+              I possess a strong commitment to excellence, a collaborative
+              mindset, and effective communication skills. Drawing upon two
+              years of experience as a{" "}
+              <span className="text-teal-500"> lieutenant </span> in the
+              Tunisian Ministry of National Defense, I bring a unique blend of
+              technical expertise and leadership skills to the table with a
+              strong commitment to excellence, a collaborative mindset, and
+              effective communication skills, I have honed a versatile set of
+              technical and non-technical skills.
+              <p>
+                <span className="text-teal-500">
+                  I am now seeking new opportunities in the IT field to further
+                  enhance my technical abilities and contribute to innovative
+                  projects.
+                </span>
+              </p>
+              <p>
+                <div>
+                  <h2>Certifications</h2>
+                  <h4 className="creds">
+                    Click on the certification to show credential
+                  </h4>
+                  {/* <Certifications style={{ backgroundColor: "transparent" }} /> */}
+                </div>
+                Click on the certification to show credential
+              </p>
             </p>
           </div>
-          <div className="lg:flex gap-10">
+
+          {/* <div>
+              <h2 id="title" className="text-3xl py-1">My tools</h2>
+              <div className="sound-div" onClick={() => setSnackbar(true)}>
+                <p>(Click me then hover over the icons</p>
+                <p>for a nice sound)</p>
+              </div>
+            </div> */}
+
+          {/* <div className="lg:flex gap-10">
             <div
               style={{
                 display: "flex",
@@ -100,18 +147,28 @@ export default function Home() {
                 width={100}
                 height={100}
               />
-              <h3 className="text-lg font-medium pt-8 pb-2  ">
-                Beautiful Designs
-              </h3>
-              <p className="py-2">
-                Creating elegant designs suited for your needs following core
-                design theory.
+              <div className="tools-names">
+              <p>Languages</p>
+              <p>
+                <div title="JavaScript">
+                  <img
+                    className="languages-icons"
+                    data-name="JavaScript"
+                    src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
+                    alt="JavaScript"
+                    onMouseEnter={playTickSound}
+                  />
+                </div>
+
+                <div title="TypeScript">
+                  <img
+                    className="languages-icons"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png"
+                    onMouseEnter={playTickSound}
+                  />
+                </div>
               </p>
-              <h4 className="py-4 text-teal-600">Design Tools I Use</h4>
-              <p className="text-gray-800 py-1">Photoshop</p>
-              <p className="text-gray-800 py-1">Illustrator</p>
-              <p className="text-gray-800 py-1">Figma</p>
-              <p className="text-gray-800 py-1">Indesign</p>
+              </div>
             </div>
             <div
               style={{
@@ -131,18 +188,42 @@ export default function Home() {
                 width={100}
                 height={100}
               />
-              <h3 className="text-lg font-medium pt-8 pb-2  ">
-                Beautiful Designs
-              </h3>
-              <p className="py-2">
-                Creating elegant designs suited for your needs following core
-                design theory.
+              <div className="tools-names">
+              <p>Databases</p>
+              <p>
+                <div title="MongoDB">
+                  <img
+                    className="languages-icons"
+                    src="https://cdn.iconscout.com/icon/free/png-256/mongodb-5-1175140.png"
+                    onMouseEnter={playTickSound}
+                  />
+                </div>
+
+                <div title="PostgreSQL">
+                  <img
+                    className="languages-icons"
+                    src="https://cdn-icons-png.flaticon.com/512/5968/5968342.png"
+                    onMouseEnter={playTickSound}
+                  />
+                </div>
+
+                <div title="MySQL">
+                  <img
+                    className="languages-icons"
+                    src="https://www.dcorba.com/wp-content/uploads/2017/11/mysql-logo.png"
+                    onMouseEnter={playTickSound}
+                  />
+                </div>
+
+                <div title="FireBase">
+                  <img
+                    className="languages-icons"
+                    src="https://cdn.iconscout.com/icon/free/png-256/firebase-1-282796.png?f=webp&w=256"
+                    onMouseEnter={playTickSound}
+                  />
+                </div>
               </p>
-              <h4 className="py-4 text-teal-600">Design Tools I Use</h4>
-              <p className="text-gray-800 py-1">Photoshop</p>
-              <p className="text-gray-800 py-1">Illustrator</p>
-              <p className="text-gray-800 py-1">Figma</p>
-              <p className="text-gray-800 py-1">Indesign</p>
+              </div>
             </div>
             <div
               style={{
@@ -162,24 +243,300 @@ export default function Home() {
                 width={100}
                 height={100}
               />
-              <h3 className="text-lg font-medium pt-8 pb-2  ">
-                Beautiful Designs
-              </h3>
-              <p className="py-2">
-                Creating elegant designs suited for your needs following core
-                design theory.
+              <div className="tools-names">
+              <p>Front-end</p>
+              <p>
+                <div title="React">
+                  <img
+                    className="languages-icons"
+                    src="https://cdn1.iconfinder.com/data/icons/programing-development-8/24/react_logo-512.png"
+                    onMouseEnter={playTickSound}
+                  />
+                </div>
+                <div title="ReactNative">
+                  <img
+                    className="languages-icons"
+                    src="https://res.cloudinary.com/dlnvacfsc/image/upload/v1680291873/samples/pngwing.com_7_nfeg4f.png"
+                    onMouseEnter={playTickSound}
+                  />
+                </div>
+                <div title="NextJS">
+                  <img
+                    className="languages-icons"
+                    src="https://cdn.cdnlogo.com/logos/n/80/next-js.svg"
+                    onMouseEnter={playTickSound}
+                  />
+                </div>
+                <div title="Vue">
+                  <img
+                    className="languages-icons"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/2367px-Vue.js_Logo_2.svg.png"
+                    onMouseEnter={playTickSound}
+                  />
+                </div>
+                <div title="React">
+                  <img
+                    className="languages-icons"
+                    src="https://cdn1.iconfinder.com/data/icons/programing-development-8/24/react_logo-512.png"
+                    onMouseEnter={playTickSound}
+                  />
+                </div>
+                <div title="Expo">
+                  <img
+                    className="languages-icons"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRRS42xTcnXMlC85s502uVAhzdGqq_23-bXA&usqp=CAU"
+                    onMouseEnter={playTickSound}
+                  />
+                </div>
+                <div title="HTML">
+                  <img
+                    className="languages-icons"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/512px-HTML5_logo_and_wordmark.svg.png?20170517184425"
+                    onMouseEnter={playTickSound}
+                  />
+                </div>
+                <div title="CSS">
+                  <img
+                    className="languages-icons"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png"
+                    onMouseEnter={playTickSound}
+                  />
+                </div>
+
               </p>
-              <h4 className="py-4 text-teal-600">Design Tools I Use</h4>
-              <p className="text-gray-800 py-1">Photoshop</p>
-              <p className="text-gray-800 py-1">Illustrator</p>
-              <p className="text-gray-800 py-1">Figma</p>
-              <p className="text-gray-800 py-1">Indesign</p>
+
+              </div>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
+                padding: "2.5rem",
+                borderRadius: "1rem",
+                margin: "2.5rem auto",
+              }}
+              className="dark:bg-white"
+            >
+              <Image
+                className="text-center"
+                src={design}
+                width={100}
+                height={100}
+              />
+              <div className="tools-names">
+              <p>Back-end</p>
+              <p>
+              <div title="NodeJS">
+                  <img
+                    className="languages-icons"
+                    src="https://res.cloudinary.com/dlnvacfsc/image/upload/v1680284101/samples/pngwing.com_5_rjnbjf.png"
+                    onMouseEnter={playTickSound}
+                  />
+                </div>
+                <div title="Express">
+                  <img
+                    className="languages-icons"
+                    src="https://res.cloudinary.com/dlnvacfsc/image/upload/v1680294186/pngwing.com_9_l9ry0z.png"
+                    onMouseEnter={playTickSound}
+                  />
+                </div>
+                <div title="Prisma">
+                  <img
+                    className="languages-icons"
+                    src="https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/287/square_480/prismaHD.png"
+                    onMouseEnter={playTickSound}
+                  />
+                </div>
+                <div title="SocketIO">
+                  <img
+                    className="languages-icons"
+                    src="https://socket.io/images/logo.svg"
+                    onMouseEnter={playTickSound}
+                  />
+                </div>
+
+              </p>
+              </div>
+            </div>
+          </div> */}
+        </section>
+        <section>
+          <div id="tools">
+            <div>
+              <h2 id="title" className="text-3xl py-1">
+                My tools
+              </h2>
+              <div className="sound-div" onClick={() => setSnackbar(true)}>
+                <p>(Click me then hover over the icons</p>
+                <p>for a nice sound)</p>
+              </div>
+
+              <div className="tools-names">
+                <p>Languages</p>
+                <p>
+                  <div title="JavaScript">
+                    <img
+                      className="languages-icons"
+                      data-name="JavaScript"
+                      src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
+                      alt="JavaScript"
+                      onMouseEnter={playTickSound}
+                    />
+                  </div>
+
+                  <div title="TypeScript">
+                    <img
+                      className="languages-icons"
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png"
+                      onMouseEnter={playTickSound}
+                    />
+                  </div>
+                </p>
+
+                <p>Databases</p>
+                <p>
+                  <div title="MongoDB">
+                    <img
+                      className="languages-icons"
+                      src="https://cdn.iconscout.com/icon/free/png-256/mongodb-5-1175140.png"
+                      onMouseEnter={playTickSound}
+                    />
+                  </div>
+
+                  <div title="PostgreSQL">
+                    <img
+                      className="languages-icons"
+                      src="https://cdn-icons-png.flaticon.com/512/5968/5968342.png"
+                      onMouseEnter={playTickSound}
+                    />
+                  </div>
+
+                  <div title="MySQL">
+                    <img
+                      className="languages-icons"
+                      src="https://www.dcorba.com/wp-content/uploads/2017/11/mysql-logo.png"
+                      onMouseEnter={playTickSound}
+                    />
+                  </div>
+
+                  <div title="FireBase">
+                    <img
+                      className="languages-icons"
+                      src="https://cdn.iconscout.com/icon/free/png-256/firebase-1-282796.png?f=webp&w=256"
+                      onMouseEnter={playTickSound}
+                    />
+                  </div>
+                </p>
+              </div>
+
+              <div className="tools-names">
+                <p>Front-end</p>
+                <p>
+                  <div title="React">
+                    <img
+                      className="languages-icons"
+                      src="https://cdn1.iconfinder.com/data/icons/programing-development-8/24/react_logo-512.png"
+                      onMouseEnter={playTickSound}
+                    />
+                  </div>
+                  <div title="ReactNative">
+                    <img
+                      className="languages-icons"
+                      src="https://res.cloudinary.com/dlnvacfsc/image/upload/v1680291873/samples/pngwing.com_7_nfeg4f.png"
+                      onMouseEnter={playTickSound}
+                    />
+                  </div>
+                  <div title="NextJS">
+                    <img
+                      className="languages-icons"
+                      src="https://cdn.cdnlogo.com/logos/n/80/next-js.svg"
+                      onMouseEnter={playTickSound}
+                    />
+                  </div>
+                  <div title="Vue">
+                    <img
+                      className="languages-icons"
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/2367px-Vue.js_Logo_2.svg.png"
+                      onMouseEnter={playTickSound}
+                    />
+                  </div>
+                  <div title="React">
+                    <img
+                      className="languages-icons"
+                      src="https://cdn1.iconfinder.com/data/icons/programing-development-8/24/react_logo-512.png"
+                      onMouseEnter={playTickSound}
+                    />
+                  </div>
+                  <div title="Expo">
+                    <img
+                      className="languages-icons"
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRRS42xTcnXMlC85s502uVAhzdGqq_23-bXA&usqp=CAU"
+                      onMouseEnter={playTickSound}
+                    />
+                  </div>
+                  <div title="HTML">
+                    <img
+                      className="languages-icons"
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/512px-HTML5_logo_and_wordmark.svg.png?20170517184425"
+                      onMouseEnter={playTickSound}
+                    />
+                  </div>
+                  <div title="CSS">
+                    <img
+                      className="languages-icons"
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png"
+                      onMouseEnter={playTickSound}
+                    />
+                  </div>
+                </p>
+
+                <p>Back-end</p>
+                <p>
+                  <div title="NodeJS">
+                    <img
+                      className="languages-icons"
+                      src="https://res.cloudinary.com/dlnvacfsc/image/upload/v1680284101/samples/pngwing.com_5_rjnbjf.png"
+                      onMouseEnter={playTickSound}
+                    />
+                  </div>
+                  <div title="Express">
+                    <img
+                      className="languages-icons"
+                      src="https://res.cloudinary.com/dlnvacfsc/image/upload/v1680294186/pngwing.com_9_l9ry0z.png"
+                      onMouseEnter={playTickSound}
+                    />
+                  </div>
+                  <div title="Prisma">
+                    <img
+                      className="languages-icons"
+                      src="https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/287/square_480/prismaHD.png"
+                      onMouseEnter={playTickSound}
+                    />
+                  </div>
+                  <div title="SocketIO">
+                    <img
+                      className="languages-icons"
+                      src="https://socket.io/images/logo.svg"
+                      onMouseEnter={playTickSound}
+                    />
+                  </div>
+                </p>
+              </div>
             </div>
           </div>
+          {/* {snackbar && (
+            <div>
+              yay :D
+              <button onClick={() => setSnackbar(false)}>Close</button>
+            </div>
+          )} */}
         </section>
         <section>
           <div>
-          <h3 className="text-3xl py-1 dark:text-white ">Portofolio</h3>
+            <h3 className="text-3xl py-1 dark:text-white ">Portofolio</h3>
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
               Since the beginning of my journey as a freelance designer and
               developer, I've done remote work for
