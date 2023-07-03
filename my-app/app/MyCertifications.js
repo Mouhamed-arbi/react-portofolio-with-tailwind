@@ -1,8 +1,8 @@
 const myCertifications = [
     {
         name:"Full Stack JavaScript Developer",
-        image:"*",
-        certificateURL:"https://verified.sertifier.com/en/verify/20541824483282"
+        image:"https://res.cloudinary.com/dttizflmi/image/upload/v1688391596/rbk_Cer_l3xdik.png",
+        certificateURL:"https://verified.sertifier.com/en/verify/72918139496324/?ref=email"
     },{
         name:"HTML, CSS, & Bootstrap - Certification",
         image:"https://res.cloudinary.com/dttizflmi/image/upload/v1688133448/udemy_Certification_ybjgqe.png",
