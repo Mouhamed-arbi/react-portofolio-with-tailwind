@@ -22,6 +22,7 @@ import { Howl } from "howler";
 import tickSoundFile from "../public/tick.mp3";
 import iconss from "./icons.css";
 import Certification from "./Certifications.js";
+import Contact from "./Contact.js";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
@@ -627,6 +628,9 @@ export default function Home() {
               />
             </div>
           </div>
+        </section>
+        <section>
+          <Contact/>
         </section>
       </main>
     </div>
